@@ -1,8 +1,12 @@
-<fl-species-card class="last"
-                 [species]="previous$ | async"
-                 (click)="moveBack()"></fl-species-card>
-<fl-species-card class="current"
-                 [species]="current$ | async"></fl-species-card>
-<fl-species-card class="next"
-                 [species]="next$ | async"
-                 (click)="moveForward()"></fl-species-card>
+<div class="small">
+  <fl-species-card *ngIf="previous$ | async as previous"
+                   [species]="previous"
+                   (click)="moveBack()"></fl-species-card>
+</div>
+<div>
+  <fl-species-card [species]="current$ | async"></fl-species-card>
+</div>
+<div class="small">
+  <fl-species-card [species]="next$ | async"
+                  (click)="moveForward()"></fl-species-card>
+</div>

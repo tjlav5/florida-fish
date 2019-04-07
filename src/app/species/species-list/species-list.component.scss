@@ -1,0 +1,24 @@
+:host {
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  overflow: hidden;
+  margin-left: -20vw;
+}
+
+:host > div {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  width: 90vw;
+
+  &.small {
+    cursor: pointer;
+    height: 25vh;
+    width: 25vw;
+  }
+}
+
+fl-species-card {
+  margin: 5px;
+}

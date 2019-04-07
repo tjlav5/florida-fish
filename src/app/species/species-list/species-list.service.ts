@@ -24,39 +24,34 @@ export class SpeciesListService {
   previous$ = this.state.pipe(map(s => !!s.previousSpecies.length &&  s.previousSpecies[s.previousSpecies.length - 1] || undefined));
 
   start() {
-    const startSpecies = getRandomSpecies();
-    console.log(startSpecies);
+    const curr = this.state.value;
     this.state.next({
-      ...this.state.value,
-      species: startSpecies,
+      ...curr,
+      species: getRandomSpecies(),
+      nextSpecies: getRandomSpecies(),
     });
   }
 
   next() {
-    // const speciesCount = Object.keys(Species).length;
-    // console.log(speciesCount)
-    // const rando = Object.keys(Species)[6];
-    // console.log(rando);
-    // // Math.floor(Math.random()*spciesCount) + 1
-    // this.state.next({
-    //   ...this.state.value,
-    //   species: rando,
-    //   previousSpecies: [...this.state.value.previousSpecies, this.state.value.species],
-    // });
+    const curr = this.state.value;
+    this.state.next({
+      ...curr,
+      species: curr.nextSpecies,
+      nextSpecies: getRandomSpecies(),
+      previousSpecies: [...curr.previousSpecies, curr.species],
+    })
   }
 
   back() {
-    // if (this.state.value.previousSpecies.length) {
-    //   const previousSpecies = [...this.state.value.previousSpecies];
-    //   this.state.next({
-    //     ...this.state.value,
-    //     species: previousSpecies.pop(),
-    //     previousSpecies,
-    //   });
-    // }
+    const curr = this.state.value;
+    if (curr.previousSpecies.length) {
+      const pop = curr.previousSpecies.pop();
+      this.state.next({
+        ...curr,
+        species: pop,
+        previousSpecies: curr.previousSpecies,
+        nextSpecies: curr.species,
+      });
+    }
   }
-
-  
-
-
 }

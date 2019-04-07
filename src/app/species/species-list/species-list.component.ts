@@ -4,7 +4,7 @@ import {SpeciesListService} from './species-list.service';
 @Component({
   selector: 'fl-species-list',
   templateUrl: './species-list.component.html',
-  styleUrls: ['./species-list.component.css'],
+  styleUrls: ['./species-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [SpeciesListService],
 })
