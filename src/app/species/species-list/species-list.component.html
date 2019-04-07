@@ -1,3 +1,8 @@
-<fl-species-card class="last"></fl-species-card>
-<fl-species-card class="current"></fl-species-card>
-<fl-species-card class="next"></fl-species-card>
+<fl-species-card class="last"
+                 [species]="previous$ | async"
+                 (click)="moveBack()"></fl-species-card>
+<fl-species-card class="current"
+                 [species]="current$ | async"></fl-species-card>
+<fl-species-card class="next"
+                 [species]="next$ | async"
+                 (click)="moveForward()"></fl-species-card>

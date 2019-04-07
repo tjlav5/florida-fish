@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
-import {Species} from '../species.enum';
+import {Species} from '../species';
 
 @Component({
   selector: 'fl-species-card',
@@ -9,7 +9,7 @@ import {Species} from '../species.enum';
 })
 export class SpeciesCardComponent {
 
-  @Input() species: Species;
+  @Input() species?: Species;
 
   constructor() { }
 
