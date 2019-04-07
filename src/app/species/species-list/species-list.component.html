@@ -4,7 +4,9 @@
                    (click)="moveBack()"></fl-species-card>
 </div>
 <div>
-  <fl-species-card [species]="current$ | async"></fl-species-card>
+  <fl-species-card [species]="current$ | async"
+                   [showBio]="showBio"
+                   (click)="showBio = !showBio"></fl-species-card>
 </div>
 <div class="small">
   <fl-species-card [species]="next$ | async"

@@ -10,6 +10,8 @@ import {SpeciesListService} from './species-list.service';
 })
 export class SpeciesListComponent {
 
+  showBio = false;
+
   constructor(private readonly list: SpeciesListService) { }
 
   previous$ = this.list.previous$;
@@ -21,10 +23,12 @@ export class SpeciesListComponent {
   }
 
   moveForward() {
+    this.showBio = false;
     this.list.next();
   }
 
   moveBack() {
+    this.showBio = false;
     this.list.back();
   }
 
